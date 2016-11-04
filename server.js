@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'Paswerd7?2790',
-  database : ''
+  database : 'burgers_db'
 });
 
 connection.connect(function(err) {
@@ -31,15 +31,25 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-//Sample GET request
+//GET request
 app.get('/', function(req, res) {
-  
+  connection.query('SELECT * FROM burgers', function(err, data){
+    if(err) throw err;
+    res.render('index', {burgerList: data})
+  })
 });
 
-//Sample POST request
-app.post('/', function(req, res) {
-  
+app.post('/create', function(req,res){
+    connection.query('INSERT INTO burgers (burgerName) VALUES (?)', [req.body.burger], function(err, result) {
+      if (err) throw err;
+      res.redirect('/');
+    });
 });
+
+// //Sample POST request
+// app.post('/', function(req, res) {
+  
+// });
 
 var port = 3000;
 app.listen(port, function() {
