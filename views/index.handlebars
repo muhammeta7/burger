@@ -1,16 +1,48 @@
-<h3>Burger List</h3>
-<ul>
-  {{#each burgerList}}
-    <li>
-      <p> {{this.id}}. {{this.burgerName}}
-        <form action="/delete?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">Devour It!</button>
-        </form>
-      </p>
-    </li>
-  {{/each}}
-</ul>
+<div class="row">
+
+  <div class="col-md-6">
+
+    <div class="panel panel-primary text-center">
+      <div class="panel-heading"><h4>Burger Choices</h4></div>
+        <div class="panel-body">
+
+          <div class="row1">
+
+            <div class="col-md-8" style='text-align: left;'>
+              {{#each burgerList}}
+              <p>{{this.id}}. {{this.burgerName}}
+                </p>
+              {{/each}}
+            </div>
+
+            <div class="col-md-4">
+              {{#each burgerList}}
+                <form action="/delete?_method=DELETE" method="POST">
+                  <input type="hidden" name="id" value="{{this.id}}">
+                  <button class='btn btn-danger' type="submit">Devour It!</button>
+                </form>
+              {{/each}}
+            </div>
+
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+ 
+
+  <div class="col-md-6">
+
+  </div>
+
+</div>
+
+
+
 
 
 <div class="panel panel-default">
@@ -24,4 +56,5 @@
     </form>
 
   </div>
+
 </div>
