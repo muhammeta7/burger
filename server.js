@@ -31,7 +31,7 @@ connection.connect(function(err) {
   console.log('connected as id ' + connection.threadId);
 });
 
-//GET request
+//GET request displays all burgers
 app.get('/', function(req, res) {
   connection.query('SELECT * FROM burgers', function(err, data){
     if(err) throw err;
@@ -39,6 +39,7 @@ app.get('/', function(req, res) {
   })
 });
 
+// POST request to add new Burger
 app.post('/create', function(req,res){
     connection.query('INSERT INTO burgers (burgerName) VALUES (?)', [req.body.burger], function(err, result) {
       if (err) throw err;
@@ -46,12 +47,23 @@ app.post('/create', function(req,res){
     });
 });
 
-// //Sample POST request
-// app.post('/', function(req, res) {
-  
-// });
+app.delete('/delete', function(req,res){
+  console.log(req.body);
+    connection.query('DELETE FROM burgers WHERE id = ?', [req.body.id], function(err, result) {
+      if (err) throw err;
+      res.redirect('/');
+    });
+});
+
 
 var port = 3000;
 app.listen(port, function() {
   console.log('App listening on PORT: ' + port);
 });
+
+// {{#each burgerList}}
+//   <ul>
+//     <p>ID: {{this.id}}</p>
+//     <p>Name: {{this.burgerName}}</p>
+//   </ul>
+// {{/each}}
