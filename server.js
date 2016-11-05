@@ -9,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+// 
 app.use(methodOverride('_method'));
 
 var exphbs = require('express-handlebars');
@@ -48,9 +49,17 @@ app.post('/create', function(req,res){
     });
 });
 
+// POST request to devour burger
 app.delete('/delete', function(req,res){
-  console.log(req.body);
     connection.query('DELETE FROM burgers WHERE id = ?', [req.body.id], function(err, result) {
+      if (err) throw err;
+      res.redirect('/');
+    });
+});
+
+// POST request to update Devoured Burgers Panel
+app.put('/update', function(req,res){
+    connection.query('UPDATE plans SET movies = ? WHERE id = ?', [req.body.burger, req.body.id], function(err, result) {
       if (err) throw err;
       res.redirect('/');
     });

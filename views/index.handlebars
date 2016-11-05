@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="col-md-6">
+  <div class="col-sm-6">
 
     <div class="panel panel-primary text-center">
       <div class="panel-heading"><h4>Burger Choices</h4></div>
@@ -8,19 +8,21 @@
 
           <div class="row1">
 
-            <div class="col-md-8" style='text-align: left;'>
+            <div class="col-md-6" style='text-align: left;'>
               {{#each burgerList}}
               <p>{{this.id}}. {{this.burgerName}}
                 </p>
+                <br>
               {{/each}}
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               {{#each burgerList}}
                 <form action="/delete?_method=DELETE" method="POST">
                   <input type="hidden" name="id" value="{{this.id}}">
                   <button class='btn btn-danger' type="submit">Devour It!</button>
                 </form>
+                <br>
               {{/each}}
             </div>
 
@@ -28,33 +30,42 @@
 
           
         </div>
-      </div>
     </div>
-
   </div>
 
  
 
-  <div class="col-md-6">
+  <div class="col-sm-6">
 
+    <div class="panel panel-primary text-center">
+      <div class="panel-heading"><h4>Burgers Devoured!</h4></div>
+        <div class="panel-body">
+
+          <form action="/update?_method=PUT" method="POST" class="button-size">
+            
+          </form>
+
+
+        </div>
+    </div>
   </div>
 
 </div>
 
-
-
-
-
-<div class="panel panel-default">
-  <div class="panel-body">
-    
-    <h4>Create a Burger</h4>
-    <form method="POST" action="/create" class="button-size">
-      <textarea type="text" name="burger"></textarea>
-      <br>
-      <button type="submit">Save Burger!</button>
-    </form>
-
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary text-center">
+      <div class="panel-heading"><h4>Create a New Burger</h4></div>
+        <div class="panel-body">
+          <form method="POST" action="/create" class="button-size">
+            <textarea type="text" name="burger" placeholder='burger name'></textarea>
+            <br>
+            <button type="submit"  class="btn btn-lg btn-success">Create Burger!</button>
+          </form>
+        </div>
+    </div>
   </div>
-
 </div>
+
+
+
