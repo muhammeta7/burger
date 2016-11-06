@@ -29,6 +29,8 @@ See package.json
 
 ## Directory Structure
 
+```
+.
 ├── config
 │   ├── connection.js
 │   └── orm.js
@@ -61,6 +63,7 @@ See package.json
     ├── index.handlebars
     └── layouts
         └── main.handlebars
+```
 
 
 Fill with any code you tought was interesting or new tech
