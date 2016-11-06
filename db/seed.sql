@@ -1,2 +1,7 @@
-INSERT INTO burgers(burgerName, devoured)
-VALUES('Jalapeno Burger', true);
+INSERT INTO burgers(burgerName)
+
+VALUES('Jalapeno Burger'),
+
+      ('BBQ Burger'),
+	  
+      ('Bacon Cheddar');

@@ -9,21 +9,34 @@
           <div class="row1">
 
             <div class="col-md-6" style='text-align: left;'>
+
               {{#each burgerList}}
-              <p>{{this.id}}. {{this.burgerName}}
-                </p>
+                <p>{{this.id}}. {{this.burgerName}}</p>
                 <br>
               {{/each}}
+
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
+              
+              {{#each burgerList}}
+                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="true">
+                  <button type="submit" class='btn btn-success'>Devour It</button>
+              </form>
+              {{/each}}
+
+            </div>
+
+            <div class="col-md-3">
+              
               {{#each burgerList}}
                 <form action="/delete?_method=DELETE" method="POST">
                   <input type="hidden" name="id" value="{{this.id}}">
-                  <button class='btn btn-danger' type="submit">Devour It!</button>
+                  <button type="submit" class='btn btn-danger'>Delete Burger!</button>
                 </form>
-                <br>
               {{/each}}
+
             </div>
 
           </div>
@@ -40,12 +53,17 @@
     <div class="panel panel-primary text-center">
       <div class="panel-heading"><h4>Burgers Devoured!</h4></div>
         <div class="panel-body">
-
-          <form action="/update?_method=PUT" method="POST" class="button-size">
-            
-          </form>
-
-
+          
+          {{#each burgerList}}
+            {{#if this.devoured}}
+                <p>{{this.id}}. {{this.burgerName}}</p>
+                <form action="/update/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="sleepy" value="false">
+                  <button type="submit">WAKE UP!</button>
+                </form>
+            {{/if}}
+          {{/each}}
+          
         </div>
     </div>
   </div>
@@ -57,11 +75,15 @@
     <div class="panel panel-primary text-center">
       <div class="panel-heading"><h4>Create a New Burger</h4></div>
         <div class="panel-body">
-          <form method="POST" action="/create" class="button-size">
-            <textarea type="text" name="burger" placeholder='burger name'></textarea>
-            <br>
-            <button type="submit"  class="btn btn-lg btn-success">Create Burger!</button>
+
+          <form class="create-update-form" action="burgers/create" method="POST">
+            <div class="form-group">
+              <label for="crBurger">Burger Name:</label>
+              <input type="text" id="crBurger" name="name">
+              <button type="submit"  class="btn btn-lg btn-success">Create Burger!</button>
+            </div>
           </form>
+
         </div>
     </div>
   </div>
