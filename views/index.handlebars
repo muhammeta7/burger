@@ -12,7 +12,7 @@
 
               {{#each burgerList}}
                 {{#unless this.devoured}}
-                  <p>{{this.id}}. {{this.burgerName}}</p>
+                  <p>ID: {{this.id}} | Burger Name: {{this.burgerName}}</p>
                   <br>
                 {{/unless}}
               {{/each}}
@@ -44,11 +44,11 @@
 
     <div class="panel panel-primary text-center">
       <div class="panel-heading"><h4>Burgers Devoured!</h4></div>
-        <div class="panel-body">
+        <div class="panel-body" style='text-align: left;'>
           
           {{#each burgerList}}
             {{#if this.devoured}}
-                <p>{{this.id}}. {{this.burgerName}}</p>
+                <p>ID: {{this.id}} | Burger Name:{{this.burgerName}}</p>
             {{/if}}
           {{/each}}
           
