@@ -23,7 +23,7 @@ router.get('/burgers', function (req, res) {
 // Create Burger 
 
 router.post('/burgers/create', function(req, res){
-  burger.create(['burgerName'], [req.body.burgerName],function() {
+  burger.create([req.body.burgerName] ,function() {
     res.redirect('/burgers');
   });
 });
