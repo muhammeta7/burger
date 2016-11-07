@@ -8,33 +8,26 @@
 
           <div class="row1">
 
-            <div class="col-md-6" style='text-align: left;'>
+            <div class="col-md-8" style='text-align: left;'>
 
               {{#each burgerList}}
-                <p>{{this.id}}. {{this.burgerName}}</p>
-                <br>
+                {{#unless this.devoured}}
+                  <p>{{this.id}}. {{this.burgerName}}</p>
+                   
+                    <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+                      <input type="hidden" name="devoured" value="true">
+                      <button type="submit" class='btn btn-success'>Devour It</button>
+                    </form>
+
+                  <br>
               {{/each}}
 
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
               
               {{#each burgerList}}
-                <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
-                  <input type="hidden" name="devoured" value="true">
-                  <button type="submit" class='btn btn-success'>Devour It</button>
-              </form>
-              {{/each}}
-
-            </div>
-
-            <div class="col-md-3">
-              
-              {{#each burgerList}}
-                <form action="/delete?_method=DELETE" method="POST">
-                  <input type="hidden" name="id" value="{{this.id}}">
-                  <button type="submit" class='btn btn-danger'>Delete Burger!</button>
-                </form>
+             
               {{/each}}
 
             </div>
@@ -57,10 +50,6 @@
           {{#each burgerList}}
             {{#if this.devoured}}
                 <p>{{this.id}}. {{this.burgerName}}</p>
-                <form action="/update/{{this.id}}?_method=PUT" method="POST">
-                  <input type="hidden" name="sleepy" value="false">
-                  <button type="submit">WAKE UP!</button>
-                </form>
             {{/if}}
           {{/each}}
           
@@ -78,8 +67,9 @@
 
           <form class="create-update-form" action="burgers/create" method="POST">
             <div class="form-group">
-              <label for="crBurger">Burger Name:</label>
-              <input type="text" id="crBurger" name="name">
+              
+              <label for="burgerName">Burger Name:</label>
+              <input type="text" id="burgerName" name="burgerName">
               <button type="submit"  class="btn btn-lg btn-success">Create Burger!</button>
             </div>
           </form>

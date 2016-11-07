@@ -3,19 +3,9 @@ Here is the O.R.M. where you write functions that takes inputs and conditions an
 */
 var connection = require('../config/connection.js');
 
-function printQuestionMarks(num) {
-  var arr = [];
-
-  for (var i = 0; i < num; i++) {
-    arr.push('?');
-  }
-
-  return arr.toString();
-}
-
 var orm = {
   
-  displayAll: function (tableInput, cb){
+  all: function (tableInput, cb) {
     var queryString = ('SELECT * FROM' + tableInput + ';');
     connection.query(queryString, function(err, result){
       if(err) throw(err);
@@ -23,12 +13,20 @@ var orm = {
     });
   },
 
-  createBurger: function(table, vals, cb){
-    var queryString = 'INSERT INTO' + table;
-    queryString = queryString + ' (';
-    queryString = queryString + vals;
+  create: function(table, cols,  vals, cb) {
+    var queryString = 'INSERT INTO burgers (burgerName) VALUES ("' + cols + '");';
+    connection.query (queryString, vals, function(err, result) {
+      if(err) throw(err);
+      cb(result);
+    });
+  },
 
-
+  update: function(id, cb) {
+    var queryString = 'UPDATE burgers WHERE id =' + id + ';';
+    connection.query(queryString, function (err, result) {
+      if(err) throw(err);
+      cb(result);
+    });
   }
-
-}
+    
+};
