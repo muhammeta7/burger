@@ -16,16 +16,18 @@ heroku link: type link here
 - npm express (https://www.npmjs.com/package/express)
 - npm body-parser (https://www.npmjs.com/package/body-parser)
 - npm method-override (https://www.npmjs.com/package/method-override)
-- npm handlebars ()
-- npm express-handlebars ()
-- npm mysql()
+- npm handlebars (https://www.npmjs.com/package/handlebars)
+- npm express-handlebars (https://www.npmjs.com/package/express-handlebars)
+- npm mysql (https://www.npmjs.com/package/mysql)
+- sequelize (https://www.npmjs.com/package/sequelize)
 
 ### Prerequisites
 
 ```
-See package.json
+See package.json & config.json
+
 ```
-## Walk Through of Code 
+
 
 ## Directory Structure
 
@@ -66,18 +68,15 @@ See package.json
 ```
 
 
-Fill with any code you tought was interesting or new tech
 
 ## Built With (fill in with applicable fields)
 
 * Node
 * Terminal/Gitbash
 * Sublime Text - Text Editor
+* Sequelize
 
 ## Authors
 
-* **Name Here** - *JS/Express/Node.js* - [Name Here](Link to Github)
+* **Muhammet Aydin** - *JS/Express/Node.js/Sequelize/MVC* - [Muhammet Aydin](https://github.com/muhammeta7/burger)
 
-## Acknowledgements
-
-Give Credit to those who helped in completion of project
