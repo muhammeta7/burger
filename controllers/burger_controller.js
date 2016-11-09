@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 
 router.get('/index', function (req, res) {
   
-  Burgers.displayAll ({})
+  Burger.displayAll ({})
   .then(function(result){
     var burgerObj = { burgerList: result };
     console.log(burgerObj);
