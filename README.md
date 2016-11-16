@@ -1,14 +1,13 @@
 # Eat-A-Burger
 
-A template for an express server using a MySQL localhost connection and the handlebars file structure
 
 ### Overview
 
-Brief Description of Project 
+Created during Week 14 of Rutgers Coding Bootcamp. The goal was to create a Burger App using Node Express Handlebars and our own ORM. It uses the MVC design pattern, Node and MySQL to query and route data to the app and Handlebars to generate the HTML. 
 
 ### Getting Started
 
-heroku link: type link here
+heroku link: Coming Soon
 
 
 ## Technologies used (fill in with applicable technologies)
