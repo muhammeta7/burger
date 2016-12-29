@@ -1,47 +1,41 @@
-# Eat-A-Burger
-
+## :hamburger: Sequelize a Burger :fries:
 
 ### Overview
 
-Created during Week 14 of Rutgers Coding Bootcamp. The goal was to create a Burger App using Node Express Handlebars and our own ORM. It uses the MVC design pattern, Node and MySQL to query and route data to the app and Handlebars to generate the HTML. 
+Using sequelize and node express servers, HW15 of the coding bootcamp is to create a burger app with associations and migrations. The user will be able to create a burger or devour one. Sequelize will initialize a database to update the HTML on screen based on user actions.
 
 ### Getting Started
 
-heroku link: Coming Soon
+heroku link: https://burgersequelized.herokuapp.com/
 
 
-## Technologies used (fill in with applicable technologies)
-- Node.js
-- npm express (https://www.npmjs.com/package/express)
-- npm body-parser (https://www.npmjs.com/package/body-parser)
-- npm method-override (https://www.npmjs.com/package/method-override)
-- npm handlebars (https://www.npmjs.com/package/handlebars)
-- npm express-handlebars (https://www.npmjs.com/package/express-handlebars)
-- npm mysql (https://www.npmjs.com/package/mysql)
-- sequelize (https://www.npmjs.com/package/sequelize)
+## :satellite: Technologies used 
+
+Frontend: `Bootstrap` and Google-Fonts are used for the styling framework. Handlebars is used to render newly created burger into relevant sections of page.
+
+Backend: App uses  `express` to serve routes and  `sequelize` to interact with a `mySQL` database. Refer to burger_controller.js file to see routes. 
 
 ### Prerequisites
 
 ```
-See package.json & config.json
+See package.json
 
 ```
-
+ 
 
 ## Directory Structure
+
+
+#### Sequelize MVC File Layout
 
 ```
 .
 ├── config
-│   ├── connection.js
-│   └── orm.js
+│   └── config.json
 │ 
 ├── controllers
 │   └── burgers_controller.js
 │
-├── db
-│   ├── schema.sql
-│   └── seeds.sql
 │
 ├── models
 │   └── burger.js
@@ -53,9 +47,7 @@ See package.json & config.json
 ├── public
 │   ├── assets
 │   │   ├── css
-│   │   │   └── burger_style.css
-│   │   └── img
-│   │       └── burger.png
+│   │  
 │   └── test.html
 │
 ├── server.js
@@ -64,18 +56,30 @@ See package.json & config.json
     ├── index.handlebars
     └── layouts
         └── main.handlebars
+
 ```
+## Screenshots
 
+### Landing Page
+![Landing Page](/screenshots/landing.png)
 
+#### Create a New Burger Section
+![View Comments](/screenshots/create.png)
 
-## Built With (fill in with applicable fields)
+#### New Burger Appears on Burger List & Devour Burger
+![View Comments](/screenshots/delete.png)
+
+## Built With 
 
 * Node
+* Sequelize
 * Terminal/Gitbash
 * Sublime Text - Text Editor
-* Sequelize
 
 ## Authors
 
-* **Muhammet Aydin** - *JS/Express/Node.js/Sequelize/MVC* - [Muhammet Aydin](https://github.com/muhammeta7/burger)
+* **Muhammet Aydin** - *Sequelize/Node/Express* - [Muhammet Aydin](https://github.com/muhammeta7)
 
+## Acknowledgements
+
+Dan and Nate for all the help
